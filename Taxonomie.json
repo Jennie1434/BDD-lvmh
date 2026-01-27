@@ -1,0 +1,777 @@
+[
+  {
+    "pilier": "Pilier 1 : L'Intérêt Produit",
+    "description": "De quoi parle-t-on ? Catégorie Macro, Modèle/Collection, Attributs Spécifiques pour produits LVMH.",
+    "branches": {
+      "Attribut": {
+        "description": "Détails précis : Couleur, Matière, Taille, Style, etc.",
+        "sous_branches": {
+          "Couleur": [
+            "Noir",
+            "Beige",
+            "Taupe",
+            "Rouge",
+            "Bleu",
+            "Vert Émeraude",
+            "Or",
+            "Cognac",
+            "Rose Poudré",
+            "Argent",
+            "Blanc",
+            "Marron",
+            "Fuchsia",
+            "Bleu Marine",
+            "Jaune Soleil",
+            "Ivoire",
+            "Violet",
+            "Vert Impérial",
+            "Nude",
+            "Havane"
+          ],
+          "Matière": [
+            "Cuir Veau Lisse",
+            "Cuir Veau Grainé",
+            "Cuir Agneau",
+            "Canvas Monogram",
+            "Crocodile",
+            "Python",
+            "Cuir Taurillon",
+            "Autruche",
+            "Cuir Métallisé",
+            "Cuir Rigide",
+            "Toile Enduite",
+            "Soie",
+            "Crêpe",
+            "Tulle",
+            "Cachemire",
+            "Laine Vierge",
+            "Tweed",
+            "Verni",
+            "Daim",
+            "Cuir Perforé",
+            "Cuir Mollet",
+            "Alligator",
+            "Acétate",
+            "Acier",
+            "Or Rose",
+            "Or Blanc",
+            "Platine"
+          ],
+          "Taille": [
+            "XS",
+            "Mini",
+            "Moyen",
+            "XL",
+            "Petit",
+            "Grand",
+            "Micro",
+            "Standard",
+            "30ml",
+            "50ml",
+            "70ml",
+            "75cl",
+            "100ml",
+            "34mm",
+            "40mm",
+            "42mm",
+            "1ct",
+            "45cm",
+            "8cm Talon",
+            "Low-Top"
+          ],
+          "Style": [
+            "Crossbody",
+            "Top-Handle",
+            "Hobo",
+            "Saddle",
+            "Bucket",
+            "Pochette Soirée",
+            "Clutch",
+            "Minaudière",
+            "Shopper XL",
+            "Tote Moyen",
+            "Keepall",
+            "Weekend Bag",
+            "Du Soir Longue",
+            "Cocktail Midi",
+            "Bustier",
+            "Trench",
+            "Cape",
+            "Tailleur",
+            "Génie",
+            "Aviator",
+            "Chrono",
+            "Automatique",
+            "Quartz",
+            "GMT",
+            "Phase Lune",
+            "Tourbillon",
+            "Solitaire",
+            "Pendentif Perle",
+            "Mat",
+            "Brillant",
+            "Satin",
+            "Métallique",
+            "Velours",
+            "Poudre",
+            "Waterproof",
+            "Gel",
+            "Anti-Âge",
+            "Illuminant",
+            "Hydratant",
+            "VS",
+            "VSOP",
+            "XO",
+            "Single Malt",
+            "Tourbé"
+          ],
+          "Autres": [
+            "Édition Limitée",
+            "Numéroté",
+            "Sur-Mesure",
+            "Millésime 2015",
+            "Dosage 8g",
+            "Zéro Dosage",
+            "40°",
+            "42°",
+            "SPF50",
+            "Longue Tenue"
+          ]
+        }
+      },
+      "Catégorie": {
+        "description": "Catégorie Macro des produits LVMH.",
+        "sous_branches": {
+          "Mode & Maroquinerie": {
+            "sous_categories": [
+              "Sacs à Main",
+              "Vêtements",
+              "Chaussures",
+              "Accessoires"
+            ]
+          },
+          "Parfums & Cosmétiques": {
+            "sous_categories": [
+              "Parfums",
+              "Maquillage",
+              "Soins Visage",
+              "Soins Corps & Cheveux"
+            ]
+          },
+          "Montres & Joaillerie": {
+            "sous_categories": [
+              "Montres",
+              "Bijoux"
+            ]
+          },
+          "Vins & Spiritueux": {
+            "sous_categories": [
+              "Champagnes",
+              "Vins",
+              "Spiritueux"
+            ]
+          },
+          "Distribution & Lifestyle": {
+            "sous_categories": [
+              "Beauté Multi",
+              "Voyages",
+              "Maison"
+            ]
+          }
+        }
+      },
+      "Modèle": {
+        "description": "Modèles/Collections spécifiques LVMH (génériques pour taxonomie scalable).",
+        "sous_branches": {
+          "Mode & Maroquinerie": [
+            "Capucines",
+            "Neverfull",
+            "Speedy",
+            "Keepall",
+            "Noé",
+            "Lockit",
+            "Alma",
+            "Tote",
+            "Birkin-like",
+            "Kelly-like",
+            "Run Away Sneakers"
+          ],
+          "Parfums & Cosmétiques": [
+            "J'adore",
+            "Miss Dior",
+            "Sauvage",
+            "Bleu",
+            "Emotions",
+            "Rouge Iconique",
+            "Palette 5 Teintes"
+          ],
+          "Montres & Joaillerie": [
+            "Tank",
+            "Cartier Santos",
+            "Panthère",
+            "Trinity",
+            "Love Bracelet"
+          ],
+          "Vins & Spiritueux": [
+            "Dom Pérignon",
+            "Krug",
+            "Hennessy XO",
+            "Moët Rosé"
+          ]
+        }
+      }
+    },
+    "exemples_combinaisons": [
+      "Catégorie: Mode & Maroquinerie > Sacs à Main > Attribut: Cuir Veau Lisse / Noir / XS / Crossbody > Modèle: Capucines",
+      "Catégorie: Parfums > Parfums > Attribut: Floral / Rose / 50ml / Unisexe > Modèle: J'adore"
+    ],
+    "total_tags": ">2000 (combinaisons infinies Attributs x Catégories x Modèles)",
+    "utilisation": "Pour tri conversations: extraire via IA 'Catégorie:Maroquinerie + Modèle:Neverfull + Attribut:Beige/Cuir/Moyen' → tagger auto."
+  },
+  {
+    "pilier": "Pilier 2 : Le Contexte d'Achat",
+    "description": "Pourquoi achètent-ils ? Dans le luxe LVMH, les achats sont motivés par des occasions émotionnelles ou événements. Branches principales : Destination, Bénéficiaire, Occasion. +150 tags hiérarchisés pour tagging conversations clients scalable en Supabase/Airtable.",
+    "branches": {
+      "1. Destination": {
+        "description": "Pour qui est l'objet ? (20+ tags)",
+        "sous_branches": {
+          "Auto-achat": [
+            "Self-Purchase",
+            "Investissement-Personnel",
+            "Récompense-Soi",
+            "Plaisir-Culpabilité",
+            "Thérapie-Shopping"
+          ],
+          "Cadeau": [
+            "Cadeau-Personnalisé",
+            "Secret-Santa",
+            "Attention-Spontanée",
+            "Cadeau-Entreprise"
+          ],
+          "Collection": [
+            "Investisseur-Luxe",
+            "Collectionneur-Rare",
+            "Héritage-Familial"
+          ]
+        }
+      },
+      "2. Bénéficiaire": {
+        "description": "Si cadeau, qui est le destinataire ? (50+ tags)",
+        "sous_branches": {
+          "Famille Proche": [
+            "Conjoint(e)",
+            "Mère",
+            "Père",
+            "Frère",
+            "Sœur",
+            "Grand-Mère",
+            "Grand-Père",
+            "Beau-Père",
+            "Belle-Mère"
+          ],
+          "Enfants": [
+            "Fils",
+            "Fille",
+            "Bébé",
+            "Adolescent",
+            "Jeune-Adulte",
+            "Future-Maman"
+          ],
+          "Amis": [
+            "Meilleur(e)-Ami(e)",
+            "Ami-Proche",
+            "Collègue-Amical",
+            "Voisin"
+          ],
+          "Relations": [
+            "Fiancé(e)",
+            "Nouveau-Conjoint",
+            "Ex-Exceptionnel"
+          ],
+          "VIP": [
+            "Célébrité",
+            "Influenceur",
+            "Client-VIP",
+            "Partenaire-Affaires"
+          ],
+          "Institutionnel": [
+            "Employé",
+            "Client-Entreprise",
+            "Partenaire-Stratégique"
+          ]
+        }
+      },
+      "3. Occasion": {
+        "description": "Événement ou émotion liée à l'achat. (80+ tags)",
+        "sous_branches": {
+          "Célébrations Familiales": [
+            "Anniversaire",
+            "Mariage",
+            "Naissance",
+            "Baptême",
+            "Bar-Mitzvah",
+            "Pâques",
+            "Fête-des-Mères",
+            "Fête-des-Pères"
+          ],
+          "Fêtes Saisonnières": [
+            "Noël",
+            "Saint-Valentin",
+            "Halloween",
+            "1er-Mai",
+            "Thanksgiving",
+            "Nouvel-An-Chinois"
+          ],
+          "Événements Pro": [
+            "Promotion",
+            "Nouveau-Poste",
+            "Closing-Deal",
+            "Anniversaire-Entreprise",
+            "Pot-de-Départ"
+          ],
+          "Voyages & Lifestyle": [
+            "Voyage-Luxe",
+            "Week-end-Romantique",
+            "Jet-Privé",
+            "Yachting",
+            "Ski-Alpin",
+            "Festival-Coachella"
+          ],
+          "Émotionnel": [
+            "Juste-Plaisir",
+            "Coup-de-Cœur",
+            "Break-up",
+            "Deuil-Confort",
+            "Bonne-Nouvelle",
+            "Coup-de-Blues"
+          ],
+          "Milestones": [
+            "30-Ans",
+            "40-Ans",
+            "50-Ans",
+            "Retraite",
+            "Divorce-Célèbre",
+            "Grossesse-Annoncée"
+          ]
+        }
+      }
+    },
+    "usage_lvmh": "Intégrez en DB : Champs multi-select par branche. Formule Airtable/Supabase : IF({Destination}='Cadeau' AND {Bénéficiaire}='Conjoint' AND {Occasion}='Mariage', 'Action: Atelier-Parfum-Noces'). Automatisation Make.com : Nouveau tag émergent (ex. 'Yacht-Party-2026') → entrée auto. Compatible piliers 1-5 pour clienteling 360°."
+  },
+  {
+    "pilier": "Pilier 3 : Le Feedback & Les Freins",
+    "description": "Pourquoi Oui ou Non ? Capture humeur, drivers positifs et blocages pour optimiser ventes LVMH. Branches : Sentiment (humeur), Frein (objections globales), Objection (détails précis). 220+ tags pour analyser échecs et relances (ex. 'Négatif-Prix-TropCher' → financing 0%).",
+    "branches": {
+      "Sentiment": {
+        "description": "Humeur globale client. 15+ tags.",
+        "sous_branches": {
+          "Positif": [
+            "Enthousiaste",
+            "Satisfait",
+            "Amoureux",
+            "Fidélisé",
+            "Recommande"
+          ],
+          "Neutre": [
+            "Intéressé",
+            "Réfléchit",
+            "Comparant",
+            "Curieux",
+            "Observateur"
+          ],
+          "Négatif": [
+            "Déçu",
+            "Frustré",
+            "Indigné",
+            "Découragé",
+            "Bloqué"
+          ]
+        }
+      },
+      "Frein": {
+        "description": "Blocages généraux/objections. 120+ tags.",
+        "sous_branches": {
+          "Prix & Budget": [
+            "Trop-Cher-Absolu",
+            "Pas-ROI-Clair",
+            "Attendre-Soldes",
+            "Budget-Serré",
+            "Concurrence-Moins-Cher",
+            "Pas-Valeur-Perçue",
+            "Frais-Supplémentaires"
+          ],
+          "Disponibilité": [
+            "Rupture-Stock",
+            "Taille-Non-Disponible",
+            "Couleur-Épuisée",
+            "Délai-Livraison",
+            "Pas-en-Boutique",
+            "Liste-Attente-Longue",
+            "Précommande-Trop-Tard"
+          ],
+          "Produit Itself": [
+            "Trop-Petit",
+            "Trop-Grand",
+            "Pas-Ma-Morphologie",
+            "Inadapté-Silhouette",
+            "Trop-Lourd",
+            "Cuir-Trop-Rigide",
+            "Odeur-Chimique",
+            "Sensible-Allergie"
+          ],
+          "Couleur & Design": [
+            "Pas-Match-Teint",
+            "Trop-Vif",
+            "Trop-Sage",
+            "Déjà-Possédé-Similaire",
+            "Trop-Flashy",
+            "Pas-Discret",
+            "Style-Vu-Partout",
+            "Pas-Mon-Gout"
+          ],
+          "Expérience Client": [
+            "Service-Lent",
+            "Conseiller-Pushy",
+            "Boutique-Surchargée",
+            "Site-Web-Lent",
+            "Retour-Compliqué",
+            "SAV-Injoignable",
+            "Promesse-Non-Tenue"
+          ],
+          "Contexte Externe": [
+            "Crise-Économique",
+            "Changement-Priorités",
+            "Cadeau-Rejeté",
+            "Comparaison-Négative"
+          ]
+        }
+      },
+      "Objection": {
+        "description": "Objections spécifiques liées à drivers inversés. 90+ tags (complément freins).",
+        "sous_branches": {
+          "Design & Esthétique": [
+            "Design-Trop-Commun",
+            "Esthétique-Datée",
+            "Signature-Non-Reconnue"
+          ],
+          "Fonctionnalité": [
+            "Trop-Lourd",
+            "Pas-Pratique",
+            "Non-Durable",
+            "Difficile-Nettoyage"
+          ],
+          "Exclusivité": [
+            "Pas-Assez-Rare",
+            "Édition-Standard",
+            "Pas-Sur-Mesure"
+          ],
+          "Tendance": [
+            "Pas-Tendance-2026",
+            "Pas-Influenceur",
+            "Pas-Investment"
+          ],
+          "Autres": [
+            "Poids-Excessif",
+            "Taille-Non-Dispo",
+            "Couleur-Non-Aimée",
+            "Stock-Rupture"
+          ]
+        }
+      }
+    },
+    "total_tags": "225+",
+    "usage": "Tagging : 'Frustré-Rupture-Stock-Paris' → alerte re-stock VIP. Auto-DB : nouveau frein si >3 mentions. Associer à Pilier 5 pour solutions (ex. financement)."
+  },
+  {
+    "pilier": "Pilier 4 : Le Profil Client & Lifestyle",
+    "description": "Qui sont-ils ? Pour clienteling LVMH personnalisé, portrait 360° via intérêts, passions, lifestyle et infos perso. Branches adaptées : Intérêts/Passions, Lifestyle (style/habitudes), Infos Perso. 280+ tags pour tri conversations et actions ciblées (ex. 'Golf-Paris-CEO' → invite tournoi privé).",
+    "branches": {
+      "Infos Perso": {
+        "description": "Données démographiques/familiales/localisation. 70+ tags.",
+        "sous_branches": {
+          "Situation Familiale": [
+            "Enfants",
+            "1-Enfant",
+            "2-Enfants",
+            "3+",
+            "Bébé-0-3ans",
+            "Adolescent",
+            "Étudiant",
+            "Célibataire",
+            "Marié(e)",
+            "Pacsé",
+            "Divorcé(e)",
+            "Veuf(ve)",
+            "Future-Maman",
+            "Grossesse-Annoncée",
+            "Nounou-Employée"
+          ],
+          "Mobilité & Localisation": [
+            "Vit-Paris-Intra-Muros",
+            "Banlieue-Chic",
+            "Province-Française",
+            "Étranger-EU",
+            "Émirats",
+            "USA-East-Coast",
+            "Asie",
+            "Amérique-Latine",
+            "Afrique-Du-Sud",
+            "Snowbird-Hiver-Dubaï",
+            "Nomade-Digital",
+            "Expats-Returning"
+          ],
+          "Âge & Génération": [
+            "25-34-Millennials",
+            "35-44",
+            "45-54",
+            "55-64",
+            "65+-Boomers-Riches"
+          ],
+          "Anniversaires & Dates": [
+            "Anniversaire-Printemps",
+            "Anniversaire-Été",
+            "Anniversaire-Hiver",
+            "Anniversaire-Automne",
+            "Anniversaire-Proche-1mois",
+            "Anniversaire-Bientôt-3mois"
+          ]
+        }
+      },
+      "Lifestyle": {
+        "description": "Habitudes consommation/style/préférences. 110+ tags.",
+        "sous_branches": {
+          "Style Préférentiel": [
+            "Classique-Tailleur-Chic",
+            "Trendy-Streetwear-Luxe",
+            "Logo-Visible-Monogramme",
+            "Quiet-Luxury-Cashmere",
+            "Total-Look-Noir",
+            "Neutres-Beige-Taupe",
+            "Pastels-Poudre",
+            "Bold-Red-Blue",
+            "Cuir-Veau-Only",
+            "Cachemire-Prefere",
+            "XS-Petite-Taille",
+            "Grande-Taille"
+          ],
+          "Habitudes Consommation": [
+            "Big-Spender-10k+",
+            "Régulier-Mensuel",
+            "Occasionnel-Saisonnier",
+            "Impulse-Buyer",
+            "Planificateur",
+            "Attentiste-Promotions",
+            "Boutique-Flagship",
+            "Personal-Shopper",
+            "Ecommerce-Luxe",
+            "Home-Delivery",
+            "Wrapping-Luxe"
+          ],
+          "Statut Social & Profession": [
+            "CEO-Entrepreneur",
+            "Avocat-Notaire",
+            "Médecine",
+            "Finance",
+            "Immobilier",
+            "Influenceur",
+            "Artiste",
+            "Sportif-Pro",
+            "Héritier-Fortune",
+            "Client-VVIP",
+            "Client-Platinum"
+          ]
+        }
+      },
+      "Interets": {
+        "description": "Intérêts généraux. 50+ tags.",
+        "sous_branches": {
+          "Arts & Culture": [
+            "Art Contemporain",
+            "Art Classique",
+            "Street-Art",
+            "Photographie",
+            "Opéra",
+            "Ballet",
+            "Musée-Regular"
+          ],
+          "Sports & Loisirs": [
+            "Golf",
+            "Tennis",
+            "Équitation",
+            "Voile-Yachting",
+            "Ski-Alpin",
+            "Polo",
+            "Yoga-Pilates"
+          ],
+          "Voyage": [
+            "Jet-Prive-Regular",
+            "Hôtels-Palace",
+            "Paris-Regular",
+            "Dubaï",
+            "Courchevel"
+          ],
+          "Gastronomie": [
+            "Étoilé-Michelin",
+            "Sommelier-Amateur",
+            "Cave-Vins"
+          ],
+          "Autres": [
+            "Animaux-Chien",
+            "High-Tech-Gadgets"
+          ]
+        }
+      },
+      "Passion": {
+        "description": "Passions profondes/détaillées. 60+ tags.",
+        "sous_branches": {
+          "Arts Approfondis": [
+            "Collectionneur-Art",
+            "Galeries-Primary",
+            "Design-Collector",
+            "Antiquités"
+          ],
+          "Sports Avancés": [
+            "Running-Marathon",
+            "Boxe",
+            "Sports-Automobiles",
+            "Chasse",
+            "Plongée"
+          ],
+          "Voyages Premium": [
+            "Private-Island",
+            "Safari",
+            "Croisière-Yacht",
+            "Orient-Express"
+          ],
+          "Œnologie & Fine Food": [
+            "Cours-Cuisine",
+            "Fromages-Fins",
+            "Cocktails-Mixologue"
+          ],
+          "Collections": [
+            "Moto-Collection",
+            "Voitures-Classiques",
+            "Jardinage-Luxe"
+          ]
+        }
+      }
+    },
+    "total_tags": "290+",
+    "usage": "Tagging : 'Golf-CEO-Paris-2Enfants' → invite family golf event. Auto-DB : nouveau tag si répétition >3x."
+  },
+  {
+    "pilier": "Pilier 5 : Action Requise Interne",
+    "description": "Que doit faire le vendeur ? Transforme données piliers 1-4 en instructions opé LVMH pour conversion. Branches : Prochaine Meilleure Action (120+), Urgence (25+), Contact/Canal (20+), Responsable (15+). 200+ tags actionnables.",
+    "branches": {
+      "Prochaine Meilleure Action": {
+        "description": "Next Best Action priorisée. 120+ tags.",
+        "sous_branches": {
+          "Contact Immédiat": [
+            "Envoyer-Photos-Stock",
+            "Envoyer-Photos-Boutique",
+            "Envoyer-Video-360",
+            "Appel-Téléphonique-Conseiller",
+            "Appel-Manager-Boutique",
+            "SMS-Lien-Produit",
+            "SMS-Code-Promo-Flash",
+            "SMS-Invite-Event",
+            "WhatsApp-Story-Produit",
+            "WhatsApp-Vidéo-Live",
+            "WhatsApp-Chat-VIP"
+          ],
+          "Réserve & Priorité": [
+            "Mettre-Côté-24h",
+            "Mettre-Côté-48h",
+            "Prévenir-Re-stock",
+            "Transfert-Boutique",
+            "Hold-VIP-ListeAttente",
+            "Réservation-SalonPrivé",
+            "Home-Delivery-Gratuit"
+          ],
+          "Invitations Événements": [
+            "Event-Golf-Private",
+            "Atelier-Blending-Parfum",
+            "Défilé-FrontRow",
+            "Dîner-Private-CEO",
+            "Yacht-Party-Summer"
+          ],
+          "Solutions Objections": [
+            "Proposition-Financement-0",
+            "Mini-Tester-10ml-Offert",
+            "Essayage-SurMesure",
+            "Matching-PersonalStylist"
+          ],
+          "Upsell/Cross-sell": [
+            "Suggest-Matching-Parfum",
+            "Suggest-Ceinture-Coordonnée",
+            "Bundle-Sac+Portefeuille",
+            "Upgrade-Matière-Exotique"
+          ]
+        }
+      },
+      "Urgence": {
+        "description": "Niveau priorité temporelle. 25+ tags.",
+        "sous_branches": {
+          "Haute <24h": [
+            "Anniversaire-Demain",
+            "Mariage-Cette-Semaine",
+            "Voyage-Demain",
+            "Cadeau-FinDeJournée",
+            "Closing-Deal-AujourdHui",
+            "FrontRow-Demain"
+          ],
+          "Moyenne <7j": [
+            "Anniversaire-3jours",
+            "Re-stock-Mercredi",
+            "Soldes-Flash-Vendredi",
+            "Event-VIP-Samedi",
+            "Fête-Mères-Dimanche"
+          ],
+          "Faible <30j": [
+            "Anniversaire-MoisProchain",
+            "Vacances-Eté-Planifiées",
+            "Noël-ListeSouhait",
+            "Birthday-Q3"
+          ]
+        }
+      },
+      "Contact": {
+        "description": "Canal préféré client. 20+ tags.",
+        "sous_branches": {
+          "Direct": [
+            "Boutique-Flagship",
+            "Personal-Shopper",
+            "Téléphone-Direct"
+          ],
+          "Digital": [
+            "WhatsApp-Elite",
+            "Email-Curation",
+            "Salon-Privé-RDV"
+          ],
+          "Premium": [
+            "Home-Visit-Paris",
+            "Jet-Transfer-Client"
+          ]
+        }
+      },
+      "Responsable": {
+        "description": "Assignation équipe. 15+ tags.",
+        "sous_branches": {
+          "Vente": [
+            "Conseiller-Personnel",
+            "Manager-Boutique",
+            "Personal-Shopper"
+          ],
+          "Événements/CRM": [
+            "Event-Team",
+            "CRM-Specialist",
+            "CEO-Office-Direct"
+          ]
+        }
+      }
+    },
+    "total_tags": "210+",
+    "usage": "Combiné : 'Envoyer-Photos-Haute-WhatsApp-Conseiller' pour 'sac-noir-rupture-golfiste'. Auto-DB : nouvelle action si pattern répété >3x."
+  }
+]
+
