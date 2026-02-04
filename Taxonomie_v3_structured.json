@@ -1,0 +1,1361 @@
+[
+  {
+    "name": "Pilier 1 : L'Intérêt Produit",
+    "description": "De quoi parle-t-on ? Catégorie Macro, Modèle/Collection, Attributs Spécifiques pour produits LVMH.",
+    "sub_categories": [
+      {
+        "name": "Catégorie",
+        "description": "Catégorie Macro des produits LVMH avec hiérarchie détaillée.",
+        "sub_sub_categories": [
+          {
+            "name": "Mode & Maroquinerie",
+            "description": "Sacs, vêtements, chaussures, accessoires de luxe",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Sacs à Main",
+                "description": "Tous types de sacs",
+                "sub_sub_sub_sub_categories": [
+                  "Sac de Voyage",
+                  "Sac de Weekend",
+                  "Sac à Main Grand",
+                  "Sac à Main Moyen",
+                  "Sac à Main Mini",
+                  "Sac Crossbody",
+                  "Sac Besace",
+                  "Sac Pochette",
+                  "Sac Clutch",
+                  "Sac Minaudière",
+                  "Sac Soirée",
+                  "Sac Shopper",
+                  "Sac Tote",
+                  "Sac Hobo",
+                  "Sac Bucket",
+                  "Sac Saddle"
+                ]
+              },
+              {
+                "name": "Chaussures",
+                "description": "Tous types de chaussures",
+                "sub_sub_sub_sub_categories": [
+                  "Chaussures de Ville",
+                  "Chaussures de Soirée",
+                  "Sneakers Luxe",
+                  "Baskets de Ville",
+                  "Bottines",
+                  "Bottes",
+                  "Mocassins",
+                  "Escarpins",
+                  "Sandales",
+                  "Chaussures de Golf",
+                  "Chaussures de Marche",
+                  "Chaussures de Bateau"
+                ]
+              },
+              {
+                "name": "Vêtements",
+                "description": "Tous types de vêtements",
+                "sub_sub_sub_sub_categories": [
+                  "Chemises",
+                  "T-shirts",
+                  "Pulls",
+                  "Cardigans",
+                  "Blazers",
+                  "Costumes",
+                  "Tailleurs",
+                  "Robes",
+                  "Jupes",
+                  "Pantalons",
+                  "Jeans",
+                  "Manteaux",
+                  "Capes",
+                  "Trenchs",
+                  "Vestes",
+                  "Cravates",
+                  "Foulards"
+                ]
+              },
+              {
+                "name": "Accessoires",
+                "description": "Accessoires mode",
+                "sub_sub_sub_sub_categories": [
+                  "Ceintures",
+                  "Portefeuilles",
+                  "Porte-cartes",
+                  "Gants",
+                  "Écharpes",
+                  "Bonnets",
+                  "Casquettes",
+                  "Cravates",
+                  "Nœuds Papillons",
+                  "Bracelets Mode",
+                  "Bagues Mode",
+                  "Montres Mode",
+                  "Lunettes de Soleil",
+                  "Lunettes de Vue",
+                  "Châles",
+                  "Pashminas"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Parfums & Cosmétiques",
+            "description": "Parfums et produits beauté",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Parfums",
+                "description": "Parfums et eaux de toilette",
+                "sub_sub_sub_sub_categories": [
+                  "Eau de Parfum Femme",
+                  "Eau de Toilette Femme",
+                  "Eau de Parfum Homme",
+                  "Eau de Toilette Homme",
+                  "Eau de Parfum Unisexe",
+                  "Parfum Concentré",
+                  "Eau Fraîche",
+                  "Eau de Cologne"
+                ]
+              },
+              {
+                "name": "Maquillage",
+                "description": "Produits de maquillage",
+                "sub_sub_sub_sub_categories": [
+                  "Rouges à Lèvres",
+                  "Rouges à Lèvres Mat",
+                  "Rouges à Lèvres Brillant",
+                  "Fonds de Teint",
+                  "Anticernes",
+                  "Poudres",
+                  "Blushes",
+                  "Bronzeurs",
+                  "Ombres à Paupières",
+                  "Palettes d'Ombres",
+                  "Mascaras",
+                  "Crayons à Yeux",
+                  "Eye-liners",
+                  "Sourcils",
+                  "Vernis à Ongles",
+                  "Glosses"
+                ]
+              },
+              {
+                "name": "Soins Visage",
+                "description": "Soins du visage",
+                "sub_sub_sub_sub_categories": [
+                  "Crèmes Hydratantes",
+                  "Crèmes Anti-Âge",
+                  "Sérums",
+                  "Masques Visage",
+                  "Nettoyants",
+                  "Toniques",
+                  "Exfoliants",
+                  "Contours des Yeux",
+                  "Ampoules",
+                  "BB Cream",
+                  "CC Cream",
+                  "Tinted Moisturizer"
+                ]
+              },
+              {
+                "name": "Soins Corps & Cheveux",
+                "description": "Soins du corps et des cheveux",
+                "sub_sub_sub_sub_categories": [
+                  "Shampooings",
+                  "Après-shampooings",
+                  "Masques Cheveux",
+                  "Sérums Cheveux",
+                  "Crèmes Corps",
+                  "Beurres Corps",
+                  "Gels Douche",
+                  "Savons de Luxe",
+                  "Huiles de Bain",
+                  "Bombes de Bain",
+                  "Déodorants",
+                  "Laits Corporels",
+                  "Peelings Corps"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Montres & Joaillerie",
+            "description": "Montres et bijoux de luxe",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Montres Femme",
+                "description": "Montres pour femmes",
+                "sub_sub_sub_sub_categories": [
+                  "Montres Classiques",
+                  "Montres Sport",
+                  "Montres de Soirée",
+                  "Montres Smartwatch",
+                  "Montres Automatiques",
+                  "Montres à Quartz",
+                  "Montres Joaillerie"
+                ]
+              },
+              {
+                "name": "Montres Homme",
+                "description": "Montres pour hommes",
+                "sub_sub_sub_sub_categories": [
+                  "Montres de Ville",
+                  "Montres de Sport",
+                  "Montres de Plongée",
+                  "Montres Aviateur",
+                  "Montres de Golf",
+                  "Montres GMT",
+                  "Montres Chronographe"
+                ]
+              },
+              {
+                "name": "Bijoux Femme",
+                "description": "Bijoux pour femmes",
+                "sub_sub_sub_sub_categories": [
+                  "Colliers",
+                  "Pendentifs",
+                  "Bracelets",
+                  "Bracelets Jonc",
+                  "Bracelets Chaîne",
+                  "Bagues",
+                  "Bagues de Fiançailles",
+                  "Bagues de Mariage",
+                  "Bagues Chevalière",
+                  "Boucles d'Oreilles",
+                  "Boucles Studs",
+                  "Boucles Créoles",
+                  "Boucles Chandelier",
+                  "Diadèmes",
+                  "Tiares"
+                ]
+              },
+              {
+                "name": "Bijoux Homme",
+                "description": "Bijoux pour hommes",
+                "sub_sub_sub_sub_categories": [
+                  "Bracelets Homme",
+                  "Bagues Homme",
+                  "Bagues Chevalière",
+                  "Bracelets à Mailles",
+                  "Bracelets Chaîne",
+                  "Chaînes",
+                  "Pendentifs Homme",
+                  "Boucles d'Oreilles Homme"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Vins & Spiritueux",
+            "description": "Vins et alcools de prestige",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Champagnes",
+                "description": "Champagnes et vins pétillants",
+                "sub_sub_sub_sub_categories": [
+                  "Champagne Brut",
+                  "Champagne Blanc de Blancs",
+                  "Champagne Blanc de Noirs",
+                  "Champagne Rosé",
+                  "Champagne Millésimé",
+                  "Champagne Prestige",
+                  "Champagne Grande Cuvée",
+                  "Champagne Demi-Sec",
+                  "Champagne Vintage"
+                ]
+              },
+              {
+                "name": "Vins Rouges",
+                "description": "Vins rouges",
+                "sub_sub_sub_sub_categories": [
+                  "Bordeaux",
+                  "Bourgogne",
+                  "Côtes du Rhône",
+                  "Vins de Provence",
+                  "Super-Toscans",
+                  "Napa Valley",
+                  "Pinot Noir",
+                  "Cabernet Sauvignon",
+                  "Merlot",
+                  "Malbec",
+                  "Grenache"
+                ]
+              },
+              {
+                "name": "Vins Blancs",
+                "description": "Vins blancs",
+                "sub_sub_sub_sub_categories": [
+                  "Sauvignon Blanc",
+                  "Riesling",
+                  "Chardonnay",
+                  "Sauternes",
+                  "Tokaji",
+                  "Vins Blancs Italiens",
+                  "Albariño",
+                  "Pinot Grigio",
+                  "Muscadet"
+                ]
+              },
+              {
+                "name": "Spiritueux",
+                "description": "Spiritueux et alcools forts",
+                "sub_sub_sub_sub_categories": [
+                  "Cognac",
+                  "Armagnac",
+                  "Whisky Écossais",
+                  "Whisky Irlandais",
+                  "Rhum",
+                  "Vodka de Luxe",
+                  "Gin Premium",
+                  "Tequila",
+                  "Mescal",
+                  "Liqueurs",
+                  "Pastis",
+                  "Absinthe",
+                  "Grappa"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Pilier 2 : Le Contexte d'Achat",
+    "description": "Pourquoi achètent-ils ? Occasions émotionnelles et événements.",
+    "sub_categories": [
+      {
+        "name": "Occasion",
+        "description": "Événement ou émotion liée à l'achat avec hiérarchie détaillée.",
+        "sub_sub_categories": [
+          {
+            "name": "Célébrations Familiales",
+            "description": "Occasions familiales",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Anniversaires",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Anniversaire-Naissance",
+                  "Anniversaire-1an",
+                  "Anniversaire-5ans",
+                  "Anniversaire-10ans",
+                  "Anniversaire-16ans",
+                  "Anniversaire-18ans",
+                  "Anniversaire-21ans",
+                  "Anniversaire-25ans",
+                  "Anniversaire-30ans",
+                  "Anniversaire-40ans",
+                  "Anniversaire-50ans",
+                  "Anniversaire-60ans",
+                  "Anniversaire-Majorité"
+                ]
+              },
+              {
+                "name": "Événements Conjugaux",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Mariage",
+                  "PACS",
+                  "Fiançailles",
+                  "Lune-de-Miel",
+                  "Anniversaire-Mariage",
+                  "Renouvellement-Voeux",
+                  "Divorce-Célèbre",
+                  "Nouvelle-Relation"
+                ]
+              },
+              {
+                "name": "Naissances & Enfance",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Naissance-Bébé",
+                  "Baptême",
+                  "Première-Communion",
+                  "Confirmation",
+                  "Bar-Mitzvah",
+                  "Bat-Mitzvah",
+                  "Naissance-Garçon",
+                  "Naissance-Fille",
+                  "Baby-Shower",
+                  "Retour-Maternité"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Fêtes Saisonnières",
+            "description": "Fêtes et célébrations calendaires",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Noël & Fin Année",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Noël",
+                  "Noël-Enfants",
+                  "Réveillon",
+                  "Sainte-Lucia",
+                  "Sinterklaas",
+                  "Épiphanie",
+                  "Cadeaux-Multipack"
+                ]
+              },
+              {
+                "name": "Printemps",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Pâques",
+                  "Fête-des-Mères",
+                  "Fête-des-Pères",
+                  "1er-Mai",
+                  "Ascension",
+                  "Pentecôte"
+                ]
+              },
+              {
+                "name": "Autres Fêtes",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Saint-Valentin",
+                  "Halloween",
+                  "Thanksgiving",
+                  "Nouvel-An-Chinois",
+                  "Diwali",
+                  "Hanoukka",
+                  "Jour-de-l-An"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Événements Pro",
+            "description": "Occasions professionnelles",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Carrière",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Promotion",
+                  "Nouveau-Poste",
+                  "CDI-Signé",
+                  "Création-Entreprise",
+                  "Acquisition-Société",
+                  "Fusion-Succès",
+                  "Levée-Fonds",
+                  "IPO",
+                  "Closing-Deal-Majeur"
+                ]
+              },
+              {
+                "name": "Événements Collectifs",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Anniversaire-Entreprise",
+                  "Pot-de-Départ",
+                  "Pot-de-Bienvenue",
+                  "Team-Building",
+                  "Conférence-VIP",
+                  "Séminaire",
+                  "Dîner-Affaires"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Voyages & Lifestyle",
+            "description": "Occasions de voyage et lifestyle",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Voyages Luxe",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Voyage-Jet-Privé",
+                  "Croisière-Yacht",
+                  "Safari-Afrique",
+                  "Ski-Alpin-Courchevel",
+                  "Ski-Alpin-Zermatt",
+                  "Île-Privée",
+                  "Villa-Côte-Azur",
+                  "Hôtel-Palace-Paris",
+                  "Hôtel-Palace-Londres",
+                  "Hôtel-Palace-Dubai",
+                  "Hôtel-Alpes",
+                  "Hôtel-Tropique"
+                ]
+              },
+              {
+                "name": "Événements de Vie",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Week-end-Romantique",
+                  "Lune-de-Miel",
+                  "Voyage-Affaires-NYC",
+                  "Festival-Art-Coachella",
+                  "Festival-Musique-Monaco",
+                  "Polo-Argentine",
+                  "Golf-Écossais",
+                  "Chasse-Afrique"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Émotionnel",
+            "description": "Achats motivés par l'émotion",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Émotions Positives",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Juste-Plaisir",
+                  "Coup-de-Cœur",
+                  "Bonne-Nouvelle",
+                  "Promotion-Succès",
+                  "Acceptation-Université",
+                  "Première-Paie",
+                  "Héritage-Reçu",
+                  "Victoire-Personnelle"
+                ]
+              },
+              {
+                "name": "Émotions Difficiles",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Break-up-Consolation",
+                  "Deuil-Réconfort",
+                  "Coup-de-Blues",
+                  "Crise-Personnelle",
+                  "Thérapie-Shopping",
+                  "Déception-Professionnelle"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Pilier 3 : Le Feedback & Les Freins",
+    "description": "Pourquoi Oui ou Non ? Sentiment, objections et blocages.",
+    "sub_categories": [
+      {
+        "name": "Sentiment",
+        "description": "Humeur globale client",
+        "sub_sub_categories": [
+          {
+            "name": "Positif",
+            "description": "Sentiments positifs",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Enthousiasme",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Enthousiaste",
+                  "Passionné",
+                  "Amoureux",
+                  "Exalté",
+                  "Addicted"
+                ]
+              },
+              {
+                "name": "Satisfaction",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Satisfait",
+                  "Content",
+                  "Ravi",
+                  "Comblé",
+                  "Flatté"
+                ]
+              },
+              {
+                "name": "Fidélité",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Fidélisé",
+                  "Recommande",
+                  "Revient-Toujours",
+                  "Défend-La-Marque"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Neutre",
+            "description": "Sentiments neutres",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Intérêt",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Intéressé",
+                  "Curieux",
+                  "Inquisiteur",
+                  "Explorateur"
+                ]
+              },
+              {
+                "name": "Réflexion",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Réfléchit",
+                  "Hésite",
+                  "Compare",
+                  "Demande-Temps"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Négatif",
+            "description": "Sentiments négatifs",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Frustation",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Frustré",
+                  "Agacé",
+                  "Impatient",
+                  "Mécontent"
+                ]
+              },
+              {
+                "name": "Rejet",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Déçu",
+                  "Indigné",
+                  "Découragé",
+                  "Bloqué",
+                  "Hostile"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Frein",
+        "description": "Blocages et objections détaillés",
+        "sub_sub_categories": [
+          {
+            "name": "Prix & Budget",
+            "description": "Freins liés au prix",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Coût-Absolu",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Trop-Cher-Absolu",
+                  "Trop-Cher-Catégorie",
+                  "Budget-Serré",
+                  "Budget-Dépassé",
+                  "Crise-Financière",
+                  "Restrictions-Budget"
+                ]
+              },
+              {
+                "name": "Valeur-Perçue",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Pas-Valeur-Perçue",
+                  "Pas-ROI-Clair",
+                  "Prix-Non-Justifié",
+                  "Surpayé",
+                  "Rapport-Qualité-Prix-Faible"
+                ]
+              },
+              {
+                "name": "Stratégie-Prix",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Attendre-Soldes",
+                  "Attendre-Promo",
+                  "Black-Friday",
+                  "Concurrence-Moins-Cher",
+                  "Contrefaçon-Alternative",
+                  "Occasion-Moins-Cher"
+                ]
+              },
+              {
+                "name": "Frais-Additionnels",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Frais-Livraison",
+                  "Frais-Personnalisation",
+                  "Frais-Installation",
+                  "Taxes-Supplémentaires"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Disponibilité",
+            "description": "Freins liés au stock et délais",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Rupture-Stock",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Rupture-Stock",
+                  "Rupture-Totale",
+                  "Rupture-Taille",
+                  "Rupture-Couleur",
+                  "Rupture-Boutique-Paris",
+                  "Rupture-Mondial"
+                ]
+              },
+              {
+                "name": "Délais",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Délai-Livraison-Trop-Long",
+                  "Délai-Production-Trop-Long",
+                  "Pas-Livraison-Urgence",
+                  "Manufacture-Fermée",
+                  "Fermeture-Usine",
+                  "Grève-Logistique"
+                ]
+              },
+              {
+                "name": "Réservation",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Liste-Attente-Trop-Longue",
+                  "Réservation-Refusée",
+                  "Dépôt-Trop-Élevé",
+                  "Pas-Réservation-Possible"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Produit-Ajustement",
+            "description": "Freins liés au produit lui-même",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Morphologie",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Pas-Ma-Morphologie",
+                  "Trop-Petit",
+                  "Trop-Grand",
+                  "Trop-Serré",
+                  "Trop-Ample",
+                  "Inadapté-Silhouette",
+                  "Pas-Mes-Proportions"
+                ]
+              },
+              {
+                "name": "Confort",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Trop-Lourd",
+                  "Cuir-Trop-Rigide",
+                  "Trop-Souple",
+                  "Pas-Confortable",
+                  "Douleurs-Pieds",
+                  "Frottements-Épaules"
+                ]
+              },
+              {
+                "name": "Qualité",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Qualité-Décevante",
+                  "Défaut-Fabrication",
+                  "Pas-Durable",
+                  "Sensible-Allergie",
+                  "Odeur-Chimique",
+                  "Matière-Inférieure-Attendu"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Esthétique",
+            "description": "Freins liés à l'apparence",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Couleur",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Pas-Match-Teint",
+                  "Pas-Match-Garde-Robe",
+                  "Trop-Vif",
+                  "Trop-Passé",
+                  "Trop-Fade",
+                  "Couleur-Non-Aimée",
+                  "Couleur-Vu-Partout"
+                ]
+              },
+              {
+                "name": "Design",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Design-Vu-Partout",
+                  "Design-Trop-Commun",
+                  "Pas-Mon-Style",
+                  "Trop-Flashy",
+                  "Pas-Discret",
+                  "Signature-Non-Reconnue",
+                  "Logo-Trop-Visible",
+                  "Logo-Pas-Visible",
+                  "Esthétique-Datée"
+                ]
+              },
+              {
+                "name": "Similarité",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Déjà-Possédé-Similaire",
+                  "Redondance-Garde-Robe",
+                  "Version-Précédente-Meilleure",
+                  "Déjà-En-Trend"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Service-Client",
+            "description": "Freins liés au service",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Expérience-Boutique",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Service-Lent",
+                  "Conseiller-Pushy",
+                  "Conseiller-Pas-Compétent",
+                  "Boutique-Surchargée",
+                  "Temps-Attente-Long",
+                  "Pas-Essayage-Possible"
+                ]
+              },
+              {
+                "name": "Support-Digital",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Site-Web-Lent",
+                  "Paiement-Non-Sécurisé",
+                  "Utilisabilité-Mauvaise",
+                  "App-Bugguée",
+                  "Chat-Indisponible"
+                ]
+              },
+              {
+                "name": "Après-Vente",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Retour-Compliqué",
+                  "Retour-Payant",
+                  "SAV-Injoignable",
+                  "Promesse-Non-Tenue",
+                  "Garantie-Insuffisante",
+                  "Réparation-Chère"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Pilier 4 : Le Profil Client & Lifestyle",
+    "description": "Qui sont-ils ? Portrait 360° pour clienteling personnalisé.",
+    "sub_categories": [
+      {
+        "name": "Intérêts & Passions Détaillés",
+        "description": "Intérêts précis et passions du client",
+        "sub_sub_categories": [
+          {
+            "name": "Sports & Loisirs",
+            "description": "Activités sportives et de loisir",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Sports Individuels",
+                "description": "Sports pratiqués seul",
+                "sub_sub_sub_sub_categories": [
+                  "Golf-Passionné",
+                  "Golf-Amateur",
+                  "Golf-Débutant",
+                  "Golf-Haut-Niveau",
+                  "Tennis-Compétition",
+                  "Tennis-Loisir",
+                  "Ski-Alpin",
+                  "Ski-Nordique",
+                  "Ski-Hors-Piste",
+                  "Équitation",
+                  "Équitation-Compétition",
+                  "Yoga",
+                  "Pilates",
+                  "Running-Marathon",
+                  "Trail",
+                  "Fitness-Musculation",
+                  "Natation",
+                  "Plongée",
+                  "Escalade",
+                  "Alpinisme",
+                  "Danse",
+                  "Boxe",
+                  "Arts-Martiaux",
+                  "Tir-Sportif"
+                ]
+              },
+              {
+                "name": "Sports-Collectifs",
+                "description": "Sports d'équipe",
+                "sub_sub_sub_sub_categories": [
+                  "Football",
+                  "Basketball",
+                  "Rugby",
+                  "Volleyball",
+                  "Hockey",
+                  "Cricket",
+                  "Baseball"
+                ]
+              },
+              {
+                "name": "Sports-Nautiques",
+                "description": "Sports sur l'eau",
+                "sub_sub_sub_sub_categories": [
+                  "Voile-Compétition",
+                  "Voile-Loisir",
+                  "Yachting-Luxe",
+                  "Catamaran",
+                  "Jet-Ski",
+                  "Wakeboard",
+                  "Kitesurf",
+                  "Windsurf",
+                  "Paddle-Board"
+                ]
+              },
+              {
+                "name": "Loisirs-Créatifs",
+                "description": "Loisirs créatifs et DIY",
+                "sub_sub_sub_sub_categories": [
+                  "Peinture",
+                  "Dessin",
+                  "Sculpture",
+                  "Photographie",
+                  "Vidéographie",
+                  "Musique-Classique",
+                  "Jazz",
+                  "Piano",
+                  "Guitare",
+                  "Poterie",
+                  "Couture",
+                  "Joaillerie-DIY",
+                  "Menuiserie",
+                  "Jardinage-Luxe"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Arts & Culture",
+            "description": "Intérêts culturels et artistiques",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Beaux-Arts",
+                "description": "Arts visuels",
+                "sub_sub_sub_sub_categories": [
+                  "Collectionneur-Art-Contemporain",
+                  "Collectionneur-Art-Classique",
+                  "Galeries-Primary-Regular",
+                  "Galeries-Secondary-Collector",
+                  "Foires-Art-FIAC",
+                  "Art-Basel",
+                  "Photographie-Fine",
+                  "Street-Art-Collector"
+                ]
+              },
+              {
+                "name": "Performing-Arts",
+                "description": "Spectacles vivants",
+                "sub_sub_sub_sub_categories": [
+                  "Opéra-Abonné",
+                  "Opéra-Occasionnel",
+                  "Ballet-Abonné",
+                  "Théâtre",
+                  "Cirque",
+                  "Concerts-Symphonie",
+                  "Concerts-Jazz",
+                  "Festivals-Musique"
+                ]
+              },
+              {
+                "name": "Musées",
+                "description": "Visites muséales",
+                "sub_sub_sub_sub_categories": [
+                  "Louvre-Régulier",
+                  "Musée-Orsay",
+                  "Centre-Pompidou",
+                  "Guggenheim",
+                  "MOMA",
+                  "British-Museum",
+                  "Uffizi-Florence",
+                  "Collectors-Private-Museums"
+                ]
+              },
+              {
+                "name": "Design",
+                "description": "Intérêt pour le design",
+                "sub_sub_sub_sub_categories": [
+                  "Collectionneur-Design-Vintage",
+                  "Collectionneur-Design-Moderne",
+                  "Collectionneur-Design-Luxe",
+                  "Design-Intérieur-Passionné",
+                  "Salons-Design-Salone-del-Mobile"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Gastronomie",
+            "description": "Intérêts culinaires et œnologiques",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Haute-Gastronomie",
+                "description": "Restaurants étoilés",
+                "sub_sub_sub_sub_categories": [
+                  "Michelin-1-Étoile-Regular",
+                  "Michelin-2-Étoiles",
+                  "Michelin-3-Étoiles-Paris",
+                  "Michelin-Monde-Explorer",
+                  "Dining-Tickets-ElBulli-Vintage",
+                  "Chef-Famous-Clientele"
+                ]
+              },
+              {
+                "name": "Oenologie",
+                "description": "Intérêt du vin",
+                "sub_sub_sub_sub_categories": [
+                  "Sommelier-Amateur",
+                  "Dégustation-Régulière",
+                  "Collectionneur-Cave-Privée",
+                  "Château-Owner",
+                  "Vineyards-Collector",
+                  "Masterclass-Oenologie"
+                ]
+              },
+              {
+                "name": "Cuisine-Fine",
+                "description": "Pratique culinaire",
+                "sub_sub_sub_sub_categories": [
+                  "Cours-Cuisine-Chef",
+                  "Chef-Privé",
+                  "Truffle-Hunter",
+                  "Fromages-Fins-Collector",
+                  "Chocolatier-Amateur"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Voyages",
+            "description": "Intérêts de voyage",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Voyage-Luxe-Habituel",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Jet-Privé-Regular",
+                  "Private-Yacht-Owner",
+                  "Palaces-Hotels-Exclusive",
+                  "Villa-Côte-d'Azur-Owner",
+                  "Ski-Chalet-Courchevel",
+                  "Safari-Private-Reserve",
+                  "Island-Private-Owner"
+                ]
+              },
+              {
+                "name": "Destinations-Signature",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Paris-Residence",
+                  "Paris-Visitor-Frequent",
+                  "Londres-Pied-à-Terre",
+                  "Dubaï-Winter-Home",
+                  "Aspen-Ski-Season",
+                  "Courchevel-Janvier",
+                  "Maldives-Tropical",
+                  "Asie-Southeast-Regular",
+                  "New-York-Business",
+                  "Singapour-Shopping"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Statut & Profession",
+        "description": "Situation professionnelle et statut social",
+        "sub_sub_categories": [
+          {
+            "name": "Secteur d'Activité",
+            "description": "Domaine professionnel",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Secteurs",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Médical-Chirurgien-Spécialiste",
+                  "Juridique-Avocat-Notaire",
+                  "Finance-Banque-Investissement",
+                  "Tech-Entrepreneur-Startupper",
+                  "Art-Culture-Galeriste-Artiste",
+                  "Immobilier-Architecture",
+                  "Politique-Diplomatie",
+                  "Mode-Luxe-Retail",
+                  "Sport-Professionnel",
+                  "Retraité-Actif"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Niveau de Responsabilité",
+            "description": "Niveau hiérarchique",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Statut",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Dirigeant-CEO-Fondateur",
+                  "C-Level-Executive",
+                  "Profession-Libérale",
+                  "Cadre-Supérieur",
+                  "Personnalité-Publique",
+                  "Rentier-Héritier"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Structure Familiale",
+        "description": "Composition du foyer et cycle de vie",
+        "sub_sub_categories": [
+          {
+            "name": "Enfants",
+            "description": "Présence et âge des enfants",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Stade de Vie",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Jeunes-Parents-Bébé",
+                  "Famille-Enfants-Scolarisés",
+                  "Famille-Adolescents",
+                  "Parents-Enfants-Jeunes-Adultes",
+                  "Grands-Parents-Actifs"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Situation Matrimoniale",
+            "description": "Statut relationnel",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Statut",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Jeune-Couple-Sans-Enfant",
+                  "Couple-Marié-Longue-Date",
+                  "Famille-Monoparentale",
+                  "Célibataire-Actif"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ADN Stylistique",
+        "description": "Goûts, préférences et aversions",
+        "sub_sub_categories": [
+          {
+            "name": "Style Général",
+            "description": "Esthétique préférée",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Esthétique",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Minimaliste-Épuré",
+                  "Classique-Intemporel",
+                  "Avant-Garde-Créateur",
+                  "Bohème-Chic",
+                  "Streetwear-Luxe",
+                  "Logo-Mania-Statutaire",
+                  "Vintage-Héritage"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Préférences Matières & Couleurs",
+            "description": "Matériaux et teintes favoris",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Matières",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Cuirs-Exotiques",
+                  "Cuirs-Classiques-Grainés",
+                  "Toile-Monogramme",
+                  "Matériaux-Durables-Eco",
+                  "Vegan-Alternative"
+                ]
+              },
+              {
+                "name": "Métaux",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Or-Jaune",
+                  "Or-Rose",
+                  "Argent-Palladium",
+                  "Mix-Metals"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Pilier 5 : Action Requise Interne",
+    "description": "Que doit faire le vendeur ? Instructions opé détaillées.",
+    "sub_categories": [
+      {
+        "name": "Actions Intelligentes",
+        "description": "Actions adaptées au profil client",
+        "sub_sub_categories": [
+          {
+            "name": "Actions Immédiates",
+            "description": "À faire dans les 24h",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Contact-Immédiat-WhatsApp",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Envoyer-Photo-360-Product",
+                  "Envoyer-Video-Unboxing",
+                  "Envoyer-Styling-Tips",
+                  "WhatsApp-Quick-Reply",
+                  "WhatsApp-Voice-Note-Conseiller"
+                ]
+              },
+              {
+                "name": "Contact-Immédiat-Téléphone",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Appel-Conseiller-Boutique",
+                  "Appel-Personal-Shopper",
+                  "Appel-Manager-Regional",
+                  "Appel-CEO-Office-VIP"
+                ]
+              },
+              {
+                "name": "Réservation-Express",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Mettre-Côté-24h-Maximum",
+                  "Salle-d'Essayage-Privée-RDV",
+                  "Personal-Shopper-Appointment",
+                  "Home-Visit-Paris-Planning"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Actions-Semaine",
+            "description": "À faire dans les 7 jours",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Invitations-Événements",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Event-Golf-Private-Invite",
+                  "Atelier-Parfum-Noses-Training",
+                  "Défilé-FrontRow-VIP",
+                  "Dîner-Private-Collector",
+                  "Yacht-Party-Invitation",
+                  "Vernissage-Art-Exclusive",
+                  "Tennis-Tournament-Private",
+                  "Polo-Argentina-Invitation"
+                ]
+              },
+              {
+                "name": "Réservations",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Pré-Réservation-Nouvelle-Collection",
+                  "Accès-Exclusif-Limited-Edition",
+                  "Priorité-Re-Stock",
+                  "VIP-Access-Flagship-Store"
+                ]
+              },
+              {
+                "name": "Solutions-Freins",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Proposition-Financement-0-Intérêt",
+                  "Mini-Tester-10ml-Offert",
+                  "Essayage-Sur-Mesure-Planning",
+                  "Personal-Styling-Session",
+                  "Matching-Couleur-Expert"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Actions-Stratégiques",
+            "description": "Stratégie long-terme",
+            "sub_sub_sub_categories": [
+              {
+                "name": "Upsell-Intelligent",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Suggest-Parfum-Match-Sac",
+                  "Suggest-Montre-Signature-Client",
+                  "Bundle-Sac-Portefeuille-Coordonné",
+                  "Upgrade-Matière-Exotique-Croco",
+                  "Service-Réparation-Customization"
+                ]
+              },
+              {
+                "name": "Fidélisation-VIP",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Programme-Loyalty-Tier-Platinum",
+                  "Private-Shopping-Session-Monthly",
+                  "Custom-Order-Atelier-Direct",
+                  "Priority-New-Collection-Access"
+                ]
+              },
+              {
+                "name": "Segmentation",
+                "description": "",
+                "sub_sub_sub_sub_categories": [
+                  "Segment-Collectionneur-Obsessionnel",
+                  "Segment-Golf-Enthusiast",
+                  "Segment-Art-Collector",
+                  "Segment-Young-Wealth-Inherited"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
