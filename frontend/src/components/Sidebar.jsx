@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, UserCheck, MessageSquare, LogOut, LogIn } from 'lucide-react';
+import { LayoutDashboard, Users, UserCheck, MessageSquare, Bell, LogOut, LogIn, Sparkles } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient';
 
 export default function Sidebar() {
     const [isLoggedIn, setIsLoggedIn] = useState(true); // Mock login state for demo
+
+    const handleSessionToggle = async () => {
+        if (isLoggedIn) {
+            await supabase.auth.signOut();
+            setIsLoggedIn(false);
+            window.location.href = '/admin/login';
+        } else {
+            window.location.href = '/admin/login';
+        }
+    };
 
     return (
         <aside className="sidebar">
             <div className="sidebar-logo">
                 LVMH <span style={{ fontSize: '0.5em', display: 'block', letterSpacing: '0.2em', marginTop: '5px', opacity: 0.7 }}>CLIENTELING</span>
+            </div>
+
+            <div className="sidebar-card">
+                <div className="sidebar-card-top">
+                    <span>Maison</span>
+                    <Sparkles size={14} />
+                </div>
+                <h4>Montaigne</h4>
+                <p>Manager Console</p>
             </div>
 
             <nav style={{ flex: 1 }}>
@@ -20,6 +40,11 @@ export default function Sidebar() {
                 <NavLink to="/advisors" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                     <Users size={20} />
                     <span>Vendeurs</span>
+                </NavLink>
+
+                <NavLink to="/alerts" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+                    <Bell size={20} />
+                    <span>Alertes</span>
                 </NavLink>
 
                 <NavLink to="/reattribution" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
@@ -45,7 +70,7 @@ export default function Sidebar() {
             {/* Session Control Mock */}
             <div style={{ marginBottom: '2rem', padding: '0 1rem' }}>
                 <button
-                    onClick={() => setIsLoggedIn(!isLoggedIn)}
+                    onClick={handleSessionToggle}
                     style={{
                         background: 'rgba(255,255,255,0.05)', border: 'none', color: '#ccc',
                         width: '100%', padding: '0.75rem', display: 'flex', alignItems: 'center', gap: '10px',
@@ -57,8 +82,12 @@ export default function Sidebar() {
                 </button>
             </div>
 
-            <div style={{ marginTop: 'auto', fontSize: '0.75rem', opacity: 0.5, textAlign: 'center' }}>
-                © 2026 LVMH
+            <div className="sidebar-footer">
+                <div>
+                    <strong>Manager</strong>
+                    <span>admin@maison.com</span>
+                </div>
+                <div>© 2026 LVMH</div>
             </div>
         </aside>
     );

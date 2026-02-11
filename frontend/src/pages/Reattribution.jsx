@@ -1,115 +1,252 @@
-import React, { useState } from 'react';
-import { User, ArrowRight, CheckCircle } from 'lucide-react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { ArrowRight, Sparkles, Users } from 'lucide-react';
+import { supabase } from '../lib/supabaseClient';
 
 export default function Reattribution() {
-    const [clients, setClients] = useState([
-        { id: 1, name: "Mme Laurent", category: "VIP", lastPurchase: "2 jours", oldAdvisor: "Julie Martin" },
-        { id: 2, name: "M. Sophie", category: "Occasionnel", lastPurchase: "3 mois", oldAdvisor: "Thomas Dubois" },
-        { id: 3, name: "Mr. Bernard", category: "Potentiel", lastPurchase: "1 semaine", oldAdvisor: "Julie Martin" },
-    ]);
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [clients, setClients] = useState([]);
+    const [sellers, setSellers] = useState([]);
+    const [assignments, setAssignments] = useState([]);
     const [selectedClients, setSelectedClients] = useState([]);
+    const [targetSeller, setTargetSeller] = useState('');
+    const [actionBusy, setActionBusy] = useState(false);
+
+    useEffect(() => {
+        let alive = true;
+        const load = async () => {
+            setLoading(true);
+            setError('');
+
+            const [{ data: sellersData, error: sellersError }, { data: clientsData, error: clientsError }, { data: assignmentsData, error: assignmentsError }] =
+                await Promise.all([
+                    supabase.from('sellers').select('id,full_name,status').order('created_at', { ascending: true }),
+                    supabase.from('clients').select('id,full_name,intent_score,temperature,estimated_budget,last_interaction_at'),
+                    supabase.from('client_assignments').select('id,client_id,seller_id,active,assigned_at'),
+                ]);
+
+            if (!alive) return;
+            if (sellersError || clientsError || assignmentsError) {
+                setError('Impossible de charger les données de réattribution.');
+                setLoading(false);
+                return;
+            }
+
+            setSellers(sellersData || []);
+            setClients(clientsData || []);
+            setAssignments(assignmentsData || []);
+            setLoading(false);
+        };
+
+        load();
+        return () => {
+            alive = false;
+        };
+    }, []);
 
     const toggleSelect = (id) => {
         if (selectedClients.includes(id)) {
-            setSelectedClients(selectedClients.filter(c => c !== id));
-        } else {
-            setSelectedClients([...selectedClients, id]);
+            setSelectedClients(selectedClients.filter((c) => c !== id));
+            return;
         }
+        setSelectedClients([...selectedClients, id]);
     };
 
-    const [targetAdvisor, setTargetAdvisor] = useState("");
+    const activeAssignments = useMemo(() => assignments.filter((a) => a.active), [assignments]);
 
-    const handleReassign = () => {
-        if (!targetAdvisor || selectedClients.length === 0) return;
-        alert(`Réattribution de ${selectedClients.length} clients vers ${targetAdvisor} effectuée.`);
-        // Reset simulation
-        setClients(clients.filter(c => !selectedClients.includes(c.id)));
+    const activeSellerMap = useMemo(() => {
+        const map = new Map();
+        activeAssignments.forEach((a) => map.set(a.client_id, a.seller_id));
+        return map;
+    }, [activeAssignments]);
+
+    const sellerMap = useMemo(() => {
+        const map = new Map();
+        sellers.forEach((s) => map.set(s.id, s));
+        return map;
+    }, [sellers]);
+
+    const sellerLoads = useMemo(() => {
+        const loads = new Map();
+        sellers.forEach((s) => loads.set(s.id, 0));
+        activeAssignments.forEach((a) => {
+            loads.set(a.seller_id, (loads.get(a.seller_id) || 0) + 1);
+        });
+        return loads;
+    }, [sellers, activeAssignments]);
+
+    const unassignedClients = useMemo(() => {
+        return clients.filter((c) => !activeSellerMap.get(c.id));
+    }, [clients, activeSellerMap]);
+
+    const suggestionForClient = (clientId) => {
+        const activeSellers = sellers.filter((s) => s.status === 'active');
+        if (!activeSellers.length) return null;
+        const sorted = [...activeSellers].sort((a, b) => (sellerLoads.get(a.id) || 0) - (sellerLoads.get(b.id) || 0));
+        return sorted[0];
+    };
+
+    const handleReassign = async () => {
+        if (!targetSeller || selectedClients.length === 0) return;
+        setActionBusy(true);
+        setError('');
+
+        for (const clientId of selectedClients) {
+            const previousSellerId = activeSellerMap.get(clientId) || null;
+
+            await supabase
+                .from('client_assignments')
+                .update({ active: false })
+                .eq('client_id', clientId)
+                .eq('active', true);
+
+            const { error: insertError } = await supabase.from('client_assignments').insert({
+                client_id: clientId,
+                seller_id: targetSeller,
+                active: true,
+            });
+
+            if (insertError) {
+                setError("Réattribution impossible (RLS ou données).");
+                setActionBusy(false);
+                return;
+            }
+
+            await supabase.from('reassignment_events').insert({
+                client_id: clientId,
+                from_seller_id: previousSellerId,
+                to_seller_id: targetSeller,
+                reason: 'manual_reassignment',
+            });
+        }
+
         setSelectedClients([]);
+        setTargetSeller('');
+        setActionBusy(false);
     };
 
     return (
-        <div>
-            <div className="page-header">
+        <div className="reattribution-page">
+            <div className="seller-header">
                 <div>
-                    <h1 className="page-title">Réattribution Clients</h1>
-                    <p style={{ color: 'var(--color-text-muted)', marginTop: '0.5rem' }}>Gérer le portefeuille client et les transferts.</p>
+                    <p className="admin-eyebrow">Manager Console</p>
+                    <h1 className="admin-title">Clients à réassigner</h1>
+                    <p className="admin-subtitle">Réattribution manuelle avec suggestion IA.</p>
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
-
-                {/* Left: Client List */}
-                <div className="card">
-                    <h3 style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-serif)' }}>Clients à Réattribuer</h3>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th style={{ width: '40px' }}></th>
-                                <th>Client</th>
-                                <th>Ancien Vendeur</th>
-                                <th>Segment</th>
-                                <th>Dernier Achat</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {clients.map(client => (
-                                <tr key={client.id}
-                                    onClick={() => toggleSelect(client.id)}
-                                    style={{ cursor: 'pointer', background: selectedClients.includes(client.id) ? '#F5F5F5' : 'transparent' }}>
-                                    <td>
-                                        <div style={{
-                                            width: '18px', height: '18px', border: '1px solid #ccc',
-                                            background: selectedClients.includes(client.id) ? 'var(--color-primary)' : 'white'
-                                        }}></div>
-                                    </td>
-                                    <td><strong>{client.name}</strong></td>
-                                    <td style={{ color: 'var(--color-text-muted)' }}>{client.oldAdvisor}</td>
-                                    <td><span className="status-badge">{client.category}</span></td>
-                                    <td>{client.lastPurchase}</td>
-                                </tr>
-                            ))}
-                            {clients.length === 0 && (
-                                <tr><td colSpan="5" style={{ textAlign: 'center', padding: '2rem' }}>Aucun client en attente.</td></tr>
-                            )}
-                        </tbody>
-                    </table>
+            {error && (
+                <div className="alert-card" style={{ marginTop: '1rem' }}>
+                    <div className="alert-top">
+                        <p>Erreur</p>
+                        <span>Action requise</span>
+                    </div>
+                    <p className="alert-detail">{error}</p>
                 </div>
+            )}
 
-                {/* Right: Action Panel */}
-                <div className="card" style={{ height: 'fit-content' }}>
-                    <h3 style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-serif)' }}>Action</h3>
+            <div className="reattribution-grid">
+                <section className="panel reassign-table">
+                    <div className="panel-header">
+                        <h2>Clients en attente</h2>
+                        <span>{unassignedClients.length} clients</span>
+                    </div>
+                    <div className="table-wrap">
+                        <table className="seller-table-inner">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Client</th>
+                                    <th>Ancien vendeur</th>
+                                    <th>Intent</th>
+                                    <th>Température</th>
+                                    <th>Budget</th>
+                                    <th>Dernier contact</th>
+                                    <th>Suggestion IA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {unassignedClients.map((client) => {
+                                    const suggestion = suggestionForClient(client.id);
+                                    const last = client.last_interaction_at
+                                        ? new Date(client.last_interaction_at).toLocaleDateString()
+                                        : '—';
+                                    return (
+                                        <tr
+                                            key={client.id}
+                                            onClick={() => toggleSelect(client.id)}
+                                            className={selectedClients.includes(client.id) ? 'active' : ''}
+                                        >
+                                            <td>
+                                                <div className={`checkbox ${selectedClients.includes(client.id) ? 'checked' : ''}`} />
+                                            </td>
+                                            <td>{client.full_name}</td>
+                                            <td>{sellerMap.get(activeSellerMap.get(client.id))?.full_name || '—'}</td>
+                                            <td>{client.intent_score ?? '—'}</td>
+                                            <td>{client.temperature ?? '—'}</td>
+                                            <td>{client.estimated_budget ? `€${client.estimated_budget}` : '—'}</td>
+                                            <td>{last}</td>
+                                            <td>
+                                                <span className="ai-pill">
+                                                    <Sparkles size={12} />
+                                                    {suggestion ? suggestion.full_name : 'Aucune'}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                                {!loading && unassignedClients.length === 0 && (
+                                    <tr>
+                                        <td colSpan="8" className="empty-state">
+                                            Aucun client à réassigner.
+                                        </td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                        {loading && <div className="table-loading">Chargement...</div>}
+                    </div>
+                </section>
 
-                    <div style={{ marginBottom: '1.5rem' }}>
-                        <label style={{ display: 'block', fontSize: '0.875rem', marginBottom: '0.5rem', color: 'var(--color-text-muted)' }}>MOUVEMENT</label>
-                        <div style={{ padding: '1rem', background: '#F8F8F8', border: '1px solid #eee', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <div style={{ fontWeight: 'bold' }}>{selectedClients.length} Clients</div>
-                            <ArrowRight size={16} />
-                            <div style={{ fontWeight: 'bold', color: targetAdvisor ? 'var(--color-primary)' : '#ccc' }}>
-                                {targetAdvisor || "?"}
+                <section className="panel reassign-action">
+                    <div className="panel-header">
+                        <h2>Réattribution</h2>
+                        <span>Batch</span>
+                    </div>
+                    <div className="action-box">
+                        <div className="action-row">
+                            <div>
+                                <p>Clients sélectionnés</p>
+                                <strong>{selectedClients.length}</strong>
+                            </div>
+                            <ArrowRight size={18} />
+                            <div>
+                                <p>Vendeur cible</p>
+                                <strong>{targetSeller ? sellerMap.get(targetSeller)?.full_name : '—'}</strong>
                             </div>
                         </div>
-                    </div>
-
-                    <div style={{ marginBottom: '2rem' }}>
-                        <label style={{ display: 'block', fontSize: '0.875rem', marginBottom: '0.5rem', color: 'var(--color-text-muted)' }}>NOUVEAU VENDEUR</label>
-                        <select
-                            style={{ width: '100%', padding: '0.75rem', border: '1px solid var(--color-border)', fontFamily: 'var(--font-sans)' }}
-                            onChange={(e) => setTargetAdvisor(e.target.value)}
-                            value={targetAdvisor}
+                        <label>
+                            Nouveau vendeur
+                            <select value={targetSeller} onChange={(e) => setTargetSeller(e.target.value)}>
+                                <option value="">Sélectionner un vendeur...</option>
+                                {sellers.filter((s) => s.status === 'active').map((s) => (
+                                    <option key={s.id} value={s.id}>{s.full_name}</option>
+                                ))}
+                            </select>
+                        </label>
+                        <button
+                            className="btn btn-gold"
+                            onClick={handleReassign}
+                            disabled={!targetSeller || selectedClients.length === 0 || actionBusy}
                         >
-                            <option value="">Sélectionner un vendeur...</option>
-                            <option value="Sarah Cohen">Sarah Cohen (Vendôme)</option>
-                            <option value="Marc Levy">Marc Levy (Le Bon Marché)</option>
-                            <option value="Elise Faure">Elise Faure (Samaritaine)</option>
-                        </select>
+                            {actionBusy ? 'Réattribution...' : 'Confirmer le transfert'}
+                        </button>
+                        <div className="action-hint">
+                            <Users size={16} />
+                            <span>Le vendeur reçoit automatiquement une notification.</span>
+                        </div>
                     </div>
-
-                    <button className="btn" style={{ width: '100%' }} onClick={handleReassign} disabled={!targetAdvisor || selectedClients.length === 0}>
-                        Confirmer le transfert
-                    </button>
-                </div>
-
+                </section>
             </div>
         </div>
     );
