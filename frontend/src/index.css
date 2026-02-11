@@ -430,7 +430,7 @@ button {
 }
 
 .btn-gold {
-  background: #c7a062;
+  background: #b89c6b;
   color: #0c0b0a;
 }
 
@@ -1267,9 +1267,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #c7a062, #e8d2a1);
+  background: #b89c6b;
   color: #0b0b0b;
-  border: none;
+  border: 1px solid rgba(124, 96, 56, 0.35);
 }
 
 .btn-outline {
@@ -2534,6 +2534,24 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2.3rem 3.6rem 3rem;
 }
 
+.editorial-top-band {
+  height: 46px;
+  width: 100%;
+  background: #4a3526;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.7rem;
+}
+
+.editorial-top-band-brand {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #f4efe8;
+}
+
 .editorial-nav {
   margin-bottom: 1.25rem;
 }
@@ -2851,6 +2869,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.4rem 1.1rem 2rem;
   }
 
+  .editorial-top-band {
+    height: 38px;
+  }
+
   .editorial-nav-track {
     grid-template-columns: 1fr 1fr;
     row-gap: 0.35rem;
@@ -2874,4 +2896,75 @@ h1, h2, h3, h4, h5, h6 {
   .map-surface {
     height: 300px;
   }
+}
+
+/* Sellers readability fix on light backgrounds */
+.seller-page {
+  color: #111111;
+}
+
+.seller-header {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.seller-table-inner td {
+  color: #111111;
+}
+
+.seller-table-inner th {
+  color: rgba(17, 17, 17, 0.58);
+}
+
+.seller-name small {
+  color: rgba(17, 17, 17, 0.56);
+}
+
+.seller-table-inner td.hot {
+  color: #8a5d13;
+  font-weight: 600;
+}
+
+.detail-title {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.empty-state {
+  color: rgba(17, 17, 17, 0.64);
+}
+
+.status-active {
+  background: rgba(46, 125, 50, 0.16);
+  color: #1f5f2a;
+}
+
+.status-inactive {
+  background: rgba(148, 163, 184, 0.22);
+  color: #334155;
+}
+
+.toggle-status {
+  border: 1px solid rgba(17, 17, 17, 0.22);
+  color: #111111;
+}
+
+.toggle-status.on {
+  background: rgba(46, 125, 50, 0.14);
+  color: #1f5f2a;
+}
+
+.toggle-status.off {
+  background: rgba(148, 163, 184, 0.22);
+  color: #334155;
+}
+
+.seller-page .filter-pill {
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  background: #f3eee7;
+  color: #2a2520;
+}
+
+.seller-page .filter-pill.active {
+  border-color: #b89c6b;
+  background: #e9dfd1;
+  color: #111111;
 }
