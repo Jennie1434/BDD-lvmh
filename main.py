@@ -1,4 +1,4 @@
-from pipeline.reporting.emailer import send_classification_email
+from pipeline.reporting.emailer import send_classification_email, send_reattribution_request, send_client_transfer_info
 
 def run_pipeline():
     """
@@ -43,6 +43,17 @@ def run_pipeline():
     
     # --- Step 3: Reporting ---
     send_classification_email(classified_data)
+    
+    # --- Step 4: Client Reassignment Simulation ---
+    print("🔄 Simulating Client Reassignment...")
+    new_salesperson_id = "Vendeur_02"
+    
+    # 1. Send request to new salesperson
+    accepted = send_reattribution_request(new_salesperson_id, classified_data["client_name"])
+    
+    # 2. If accepted, send full info + summary
+    if accepted:
+        send_client_transfer_info(new_salesperson_id, classified_data)
     
     print("✅ Pipeline execution finished.")
 

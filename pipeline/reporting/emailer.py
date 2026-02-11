@@ -87,3 +87,42 @@ def send_classification_email(data: Dict[str, Any]):
     
     logging.info(f"Email successfully sent for Note #{data.get('note_id')}")
 
+def send_reattribution_request(salesperson_id: str, client_name: str) -> bool:
+    """
+    Sends a reattribution request to the internal messaging system.
+    Returns True if accepted (simulated), False otherwise.
+    """
+    print("\n" + "="*50)
+    print(f"🔔 INTERNAL MESSAGE TO {salesperson_id}")
+    print("="*50)
+    print(f"New client reattribution request: {client_name}")
+    print("Do you accept this client? (Simulated: YES)")
+    print("="*50 + "\n")
+    
+    # In a real app, this would be an async response or a callback.
+    # Here we mock it as accepted.
+    logging.info(f"Salesperson {salesperson_id} accepted reattribution of {client_name}")
+    return True 
+
+def send_client_transfer_info(salesperson_id: str, data: Dict[str, Any]):
+    """
+    Sends client info and last session summary upon acceptance.
+    """
+    logging.info(f"Sending client info to {salesperson_id}...")
+    
+    # We reuse format_email_body for the summary part as requested ("resume de la derniere session")
+    summary = format_email_body(data)
+    
+    print("\n" + "="*50)
+    print(f"📂 CLIENT TRANSFER - INFO PACK FOR {salesperson_id}")
+    print("="*50)
+    print(f"Client: {data.get('client_name')}")
+    # Basic info
+    profile = data.get('profile_lifestyle', {})
+    print(f"Info Mémo: {profile.get('info_memo', 'N/A')}")
+    print("-" * 20)
+    print("📝 LAST SESSION SUMMARY:")
+    print(summary)
+    print("="*50 + "\n")
+    
+    logging.info(f"Client info package sent to {salesperson_id}")
