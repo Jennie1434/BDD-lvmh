@@ -18,106 +18,106 @@ const MAISONS: Maison[] = [
     id: "1",
     title: "Louis Vuitton",
     category: "Mode, Maroquinerie, Bagagerie",
-    prodImg: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?luxury,bag",
+    modelImg: "https://source.unsplash.com/800x800/?fashion,model"
   },
   {
     id: "2",
     title: "Christian Dior",
     category: "Haute Couture, Prêt-à-porter",
-    prodImg: "https://images.unsplash.com/photo-1539109132381-31a1C97447a1?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?haute-couture",
+    modelImg: "https://source.unsplash.com/800x800/?runway"
   },
   {
     id: "3",
     title: "Celine",
     category: "Mode et Accessoires",
-    prodImg: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?handbag",
+    modelImg: "https://source.unsplash.com/800x800/?street-style"
   },
   {
     id: "4",
     title: "Loewe",
     category: "Mode Espagnole et Maroquinerie",
-    prodImg: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?leather,craft",
+    modelImg: "https://source.unsplash.com/800x800/?editorial,fashion"
   },
   {
     id: "5",
     title: "Fendi",
     category: "Mode, Maroquinerie Italienne",
-    prodImg: "https://images.unsplash.com/photo-1549439602-43ebca2327af?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?luxury,accessories",
+    modelImg: "https://source.unsplash.com/800x800/?fashion,portrait"
   },
   {
     id: "6",
     title: "Givenchy",
     category: "Mode et Accessoires",
-    prodImg: "https://images.unsplash.com/photo-1591360236480-4924ec982ca3?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1534030347209-cfa77d0e80a9?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?designer,clothing",
+    modelImg: "https://source.unsplash.com/800x800/?atelier"
   },
   {
     id: "7",
     title: "Kenzo",
     category: "Mode",
-    prodImg: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1534030347209-cfa77d0e80a9?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?pattern,fashion",
+    modelImg: "https://source.unsplash.com/800x800/?colorful,style"
   },
   {
     id: "8",
     title: "Berluti",
     category: "Menswear et Maroquinerie",
-    prodImg: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?leather,shoes",
+    modelImg: "https://source.unsplash.com/800x800/?menswear"
   },
   {
     id: "9",
     title: "Loro Piana",
     category: "Mode et Textiles haut de gamme",
-    prodImg: "https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?cashmere,fabric",
+    modelImg: "https://source.unsplash.com/800x800/?minimal,fashion"
   },
   {
     id: "10",
     title: "Emilio Pucci",
     category: "Mode",
-    prodImg: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?print,fashion",
+    modelImg: "https://source.unsplash.com/800x800/?resort,style"
   },
   {
     id: "11",
     title: "Marc Jacobs",
     category: "Mode",
-    prodImg: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1518764876364-21f1d1994e46?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?runway,backstage",
+    modelImg: "https://source.unsplash.com/800x800/?editorial,model"
   },
   {
     id: "12",
     title: "RIMOWA",
     category: "Bagagerie haut de gamme",
-    prodImg: "https://images.unsplash.com/photo-1565026073747-4938006a642a?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1553531384-411a247ccd73?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?luggage,travel",
+    modelImg: "https://source.unsplash.com/800x800/?travel,airport"
   },
   {
     id: "13",
     title: "Patou",
     category: "Maison de mode historique",
-    prodImg: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?vintage,fashion",
+    modelImg: "https://source.unsplash.com/800x800/?atelier,designer"
   },
   {
     id: "14",
     title: "Barton Perreira",
     category: "Lunetterie de luxe",
-    prodImg: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1508243529287-e21914733111?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?eyewear,sunglasses",
+    modelImg: "https://source.unsplash.com/800x800/?sunglasses,model"
   },
   {
     id: "15",
     title: "Vuarnet",
     category: "Lunettes haut de gamme",
-    prodImg: "https://images.unsplash.com/photo-1511499767390-903390e6fbc4?auto=format&fit=crop&q=80&w=800",
-    modelImg: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&q=80&w=800"
+    prodImg: "https://source.unsplash.com/800x800/?glasses,luxury",
+    modelImg: "https://source.unsplash.com/800x800/?sport,eyewear"
   }
 ];
 
