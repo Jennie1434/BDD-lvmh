@@ -1,246 +1,272 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import React, { useEffect, useMemo, useState } from 'react';
+import Head from 'next/head';
+import { supabase } from '@/lib/supabase';
+import AdminLayout from '@/components/layout/AdminLayout';
 
-const kpis = [
-    { label: 'Vendeurs actifs', value: '12', delta: '+2', tone: 'good' },
-    { label: 'Vendeurs inactifs', value: '3', delta: '-1', tone: 'neutral' },
-    { label: 'Clients actifs', value: '428', delta: '+18', tone: 'good' },
-    { label: 'Intentions HOT', value: '64', delta: '+9', tone: 'hot' },
-    { label: 'Pipeline estimé', value: '€2.4M', delta: '+6%', tone: 'good' },
-    { label: 'Alertes critiques', value: '7', delta: '+3', tone: 'alert' },
-]
+interface NetworkPoint {
+    id: string;
+    x: number;
+    y: number;
+    t: 'cold' | 'warm' | 'hot';
+}
 
-const alerts = [
-    {
-        title: 'HOT sans suivi',
-        detail: '8 clients n’ont pas eu de rappel depuis 72h.',
-        badge: '🔥 Prioritaire',
-    },
-    {
-        title: 'Surcharge vendeur',
-        detail: '2 vendeurs dépassent 45 clients actifs.',
-        badge: '⚖️ Rééquilibrer',
-    },
-    {
-        title: 'Chute conversion',
-        detail: 'Conversion -12% sur les 14 derniers jours.',
-        badge: '📉 Audit',
-    },
-    {
-        title: 'Clients oubliés',
-        detail: '11 clients WARM sans interaction depuis 30j.',
-        badge: '🧊 Relancer',
-    },
-]
+interface Stats {
+    activeSellers: number;
+    inactiveSellers: number;
+    hotClients: number;
+    warmClients: number;
+    coldClients: number;
+    pipeline: number;
+    criticalAlerts: number;
+}
 
-const teamSnapshot = [
-    { name: 'Alicia Morand', status: 'Active', clients: 48, hot: 9, score: 92 },
-    { name: 'Hugo Bernard', status: 'Active', clients: 39, hot: 6, score: 87 },
-    { name: 'Yasmin Costa', status: 'Inactive', clients: 27, hot: 4, score: 74 },
-]
+interface Alert {
+    id: string;
+    type: string;
+    severity: string;
+    resolved: boolean;
+    created_at: string;
+}
+
+interface TimelineItem {
+    id: string;
+    label: string;
+    detail: string;
+    date: string;
+}
+
+const networkPoints: NetworkPoint[] = [
+    { id: 'n1', x: 8, y: 24, t: 'cold' },
+    { id: 'n2', x: 22, y: 40, t: 'warm' },
+    { id: 'n3', x: 33, y: 18, t: 'warm' },
+    { id: 'n4', x: 46, y: 55, t: 'hot' },
+    { id: 'n5', x: 55, y: 22, t: 'cold' },
+    { id: 'n6', x: 68, y: 44, t: 'warm' },
+    { id: 'n7', x: 82, y: 28, t: 'hot' },
+    { id: 'n8', x: 90, y: 56, t: 'cold' },
+];
+
+const networkLinks: [string, string][] = [
+    ['n1', 'n2'], ['n2', 'n4'], ['n3', 'n5'], ['n5', 'n7'], ['n4', 'n6'], ['n6', 'n8'], ['n2', 'n3'], ['n4', 'n7'],
+];
 
 export default function AdminHome() {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const [needsAuth, setNeedsAuth] = useState(false);
+    const [stats, setStats] = useState<Stats>({
+        activeSellers: 0,
+        inactiveSellers: 0,
+        hotClients: 0,
+        warmClients: 0,
+        coldClients: 0,
+        pipeline: 0,
+        criticalAlerts: 0,
+    });
+    const [alerts, setAlerts] = useState<Alert[]>([]);
+
+    useEffect(() => {
+        let alive = true;
+
+        const load = async () => {
+            setLoading(true);
+            setError('');
+
+            const { data: sessionData } = await supabase.auth.getSession();
+            if (!sessionData?.session) {
+                setNeedsAuth(true);
+                setLoading(false);
+                return;
+            }
+
+            const [{ data: sellers, error: sellersError }, { data: clients, error: clientsError }, { data: alertsData, error: alertsError }] =
+                await Promise.all([
+                    supabase.from('sellers').select('id,status'),
+                    supabase.from('clients').select('id,temperature,estimated_budget'),
+                    supabase.from('alerts').select('id,type,severity,resolved,created_at').order('created_at', { ascending: false }).limit(8),
+                ]);
+
+            if (!alive) return;
+
+            if (sellersError || clientsError || alertsError) {
+                setError('Connexion Supabase: accès refusé ou données indisponibles.');
+                setLoading(false);
+                return;
+            }
+
+            setStats({
+                activeSellers: sellers?.filter((s: any) => s.status === 'active').length || 0,
+                inactiveSellers: sellers?.filter((s: any) => s.status === 'inactive').length || 0,
+                hotClients: clients?.filter((c: any) => c.temperature === 'HOT').length || 0,
+                warmClients: clients?.filter((c: any) => c.temperature === 'WARM').length || 0,
+                coldClients: clients?.filter((c: any) => c.temperature === 'COLD').length || 0,
+                pipeline: (clients || []).reduce((sum: number, c: any) => sum + (Number(c.estimated_budget) || 0), 0),
+                criticalAlerts: (alertsData || []).filter((a: Alert) => !a.resolved && a.severity === 'high').length,
+            });
+            setAlerts(alertsData || []);
+            setLoading(false);
+        };
+
+        load();
+        return () => {
+            alive = false;
+        };
+    }, []);
+
+    const tensionValue = useMemo(() => {
+        const tension = (stats.hotClients * 2) + (stats.criticalAlerts * 4) + stats.inactiveSellers;
+        if (!tension) return '62';
+        return String(Math.min(99, Math.max(28, tension)));
+    }, [stats]);
+
+    const pipelineValue = useMemo(() => {
+        if (!stats.pipeline) return '4,8M';
+        const million = stats.pipeline / 1_000_000;
+        return million.toFixed(1).replace('.', ',') + 'M';
+    }, [stats.pipeline]);
+
+    const riskValue = useMemo(() => {
+        if (stats.criticalAlerts >= 5) return 'Élevé';
+        if (stats.criticalAlerts >= 2) return 'Modéré';
+        return 'Modéré';
+    }, [stats.criticalAlerts]);
+
+    const recommendation = useMemo(() => {
+        if (stats.criticalAlerts >= 4) {
+            return {
+                title: 'RECOMMANDATION STRATÉGIQUE',
+                text: 'Rééquilibrer la disponibilité vendeurs sur zone Est.',
+                priority: 'Haute',
+                impact: '+18% fluidité client',
+            };
+        }
+
+        return {
+            title: 'RECOMMANDATION STRATÉGIQUE',
+            text: 'Rééquilibrer la disponibilité vendeurs sur zone Est.',
+            priority: 'Moyenne',
+            impact: '+12% fluidité client',
+        };
+    }, [stats.criticalAlerts]);
+
+    const timeline = useMemo<TimelineItem[]>(() => {
+        const fromAlerts = alerts.slice(0, 5).map((alert) => ({
+            id: alert.id,
+            label: alert.type,
+            detail: alert.severity === 'high' ? 'Priorité élevée' : 'Signal modéré',
+            date: new Date(alert.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }),
+        }));
+
+        if (fromAlerts.length) return fromAlerts;
+
+        return [
+            { id: 't-1', label: 'Pipeline consolidé', detail: 'Projection budgétaire mise à jour', date: 'Aujourd\'hui' },
+            { id: 't-2', label: 'Zone Est observée', detail: 'Tension client en hausse discrète', date: 'Aujourd\'hui' },
+            { id: 't-3', label: 'Matrice vendeurs', detail: 'Stabilité maintenue', date: 'Hier' },
+        ];
+    }, [alerts]);
+
+    const pointsMap = useMemo(() => {
+        const pointById = Object.fromEntries(networkPoints.map((p) => [p.id, p]));
+        return { pointById };
+    }, []);
+
     return (
-        <main className="min-h-screen bg-[#0C0B0A] text-white">
+        <AdminLayout>
             <Head>
-                <title>Manager Console | LVMH</title>
+                <title>Salle de pilotage | LVMH</title>
                 <meta
                     name="description"
-                    content="Vue manager: boutique, vendeurs, alertes et pipeline."
+                    content="Salle de pilotage stratégique - Maison Montaigne"
                 />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className="relative overflow-hidden">
-                <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,166,100,0.25),rgba(12,11,10,0))]" />
-                <div className="pointer-events-none absolute -right-32 top-20 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(91,86,74,0.35),rgba(12,11,10,0))]" />
-                <div className="pointer-events-none absolute bottom-0 left-0 h-[220px] w-full bg-[linear-gradient(180deg,rgba(12,11,10,0),rgba(12,11,10,0.95))]" />
+            <div className="maison-editorial">
+                <header className="editorial-header">
+                    <p className="header-maison">MAISON MONTAIGNE</p>
+                    <h1 className="header-title">Salle de pilotage stratégique</h1>
+                </header>
 
-                <div className="mx-auto max-w-6xl px-6 pb-20 pt-14">
-                    <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                <section className="plan plan-situation" aria-label="Situation">
+                    <p className="situation-lead">La tension client est maîtrisée. Deux zones requièrent attention.</p>
+
+                    <div className="situation-metrics">
                         <div>
-                            <p className="text-xs uppercase tracking-[0.4em] text-[#C9A664]">
-                                Manager Console
-                            </p>
-                            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white md:text-5xl">
-                                Maison Montaigne
-                            </h1>
-                            <p className="mt-3 max-w-xl text-sm text-white/70">
-                                Vue synthèse: vendeurs, clients et alertes critiques pour piloter la
-                                boutique en 5 secondes.
-                            </p>
+                            <p>Tension globale</p>
+                            <strong>{loading ? '62' : tensionValue}</strong>
                         </div>
-                        <div className="flex flex-wrap gap-3">
-                            <Link
-                                href="/admin/reassign"
-                                className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs uppercase tracking-[0.3em] text-white/80 transition hover:border-[#C9A664]/60 hover:text-white"
-                            >
-                                Clients à réassigner
-                            </Link>
-                            <Link
-                                href="/admin/alerts"
-                                className="rounded-full bg-[#C9A664] px-5 py-2 text-xs uppercase tracking-[0.3em] text-black transition hover:brightness-110"
-                            >
-                                Voir alertes
-                            </Link>
+                        <div>
+                            <p>Pipeline estimé</p>
+                            <strong>{loading ? '4,8M' : pipelineValue}</strong>
+                        </div>
+                        <div>
+                            <p>Risque prioritaire</p>
+                            <strong>{loading ? 'Modéré' : riskValue}</strong>
                         </div>
                     </div>
+                </section>
 
-                    <div className="mt-12 grid gap-4 md:grid-cols-3">
-                        {kpis.map((kpi) => (
-                            <div
-                                key={kpi.label}
-                                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
-                            >
-                                <p className="text-[11px] uppercase tracking-[0.3em] text-white/50">
-                                    {kpi.label}
-                                </p>
-                                <div className="mt-4 flex items-end justify-between">
-                                    <p className="text-3xl font-semibold">{kpi.value}</p>
-                                    <span
-                                        className={`rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] ${kpi.tone === 'alert'
-                                            ? 'bg-red-500/20 text-red-200'
-                                            : kpi.tone === 'hot'
-                                                ? 'bg-orange-400/20 text-orange-200'
-                                                : 'bg-emerald-400/15 text-emerald-200'
-                                            }`}
-                                    >
-                                        {kpi.delta}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
+                <section className="plan plan-map" aria-label="Cartographie immersive">
+                    <div className="map-surface">
+                        <svg viewBox="0 0 100 70" preserveAspectRatio="none" className="map-svg" role="img" aria-label="Réseau relationnel">
+                            {networkLinks.map(([from, to], index) => {
+                                const a = pointsMap.pointById[from];
+                                const b = pointsMap.pointById[to];
+                                return (
+                                    <line
+                                        key={`${from}-${to}`}
+                                        x1={a.x}
+                                        y1={a.y}
+                                        x2={b.x}
+                                        y2={b.y}
+                                        className="map-link"
+                                        style={{ animationDelay: `${index * 0.2}s` }}
+                                    />
+                                );
+                            })}
+
+                            {networkPoints.map((point, index) => (
+                                <circle
+                                    key={point.id}
+                                    cx={point.x}
+                                    cy={point.y}
+                                    r={point.t === 'hot' ? 1.15 : 0.85}
+                                    className={`map-point map-point-${point.t}`}
+                                    style={{ animationDelay: `${index * 0.28}s` }}
+                                />
+                            ))}
+                        </svg>
                     </div>
+                </section>
 
-                    <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                        <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-                            <div className="flex items-center justify-between">
-                                <h2 className="text-lg font-semibold">Pulse Boutique</h2>
-                                <span className="text-xs uppercase tracking-[0.3em] text-white/50">
-                                    7 derniers jours
-                                </span>
-                            </div>
-                            <div className="mt-6 grid gap-4 md:grid-cols-2">
-                                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-                                        Conversion
-                                    </p>
-                                    <p className="mt-3 text-3xl font-semibold">18.4%</p>
-                                    <p className="mt-2 text-xs text-white/60">
-                                        +2.1 pts vs. semaine dernière
-                                    </p>
-                                </div>
-                                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                                    <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-                                        Panier moyen
-                                    </p>
-                                    <p className="mt-3 text-3xl font-semibold">€6.8K</p>
-                                    <p className="mt-2 text-xs text-white/60">
-                                        3 closings > €20K cette semaine
-                                    </p>
-                                </div>
-                                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:col-span-2">
-                                    <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-                                        Répartition clients
-                                    </p>
-                                    <div className="mt-4 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em]">
-                                        <span className="rounded-full bg-orange-400/20 px-4 py-2 text-orange-200">
-                                            HOT 64
-                                        </span>
-                                        <span className="rounded-full bg-sky-300/20 px-4 py-2 text-sky-100">
-                                            WARM 197
-                                        </span>
-                                        <span className="rounded-full bg-slate-400/20 px-4 py-2 text-slate-100">
-                                            COLD 167
-                                        </span>
-                                    </div>
-                                    <p className="mt-3 text-xs text-white/60">
-                                        24 nouveaux clients depuis 14 jours
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
+                <div className="plan-row">
+                    <section className="plan plan-decision" aria-label="Plan décision IA">
+                        <p className="decision-heading">{recommendation.title}</p>
+                        <p className="decision-body">{recommendation.text}</p>
+                        <p className="decision-meta">Priorité : {recommendation.priority}. Impact estimé : {recommendation.impact}.</p>
+                    </section>
 
-                        <section className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-                            <div className="flex items-center justify-between">
-                                <h2 className="text-lg font-semibold">Alertes prioritaires</h2>
-                                <span className="text-xs uppercase tracking-[0.3em] text-white/50">
-                                    À traiter
-                                </span>
-                            </div>
-                            <div className="mt-6 space-y-4">
-                                {alerts.map((alert) => (
-                                    <div
-                                        key={alert.title}
-                                        className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                                    >
-                                        <div className="flex items-center justify-between">
-                                            <p className="text-sm font-semibold">{alert.title}</p>
-                                            <span className="text-[10px] uppercase tracking-[0.2em] text-[#C9A664]">
-                                                {alert.badge}
-                                            </span>
-                                        </div>
-                                        <p className="mt-2 text-xs text-white/60">{alert.detail}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    </div>
-
-                    <section className="mt-10 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
-                        <div className="flex items-center justify-between">
-                            <h2 className="text-lg font-semibold">Instantané vendeurs</h2>
-                            <Link
-                                href="/admin/sellers"
-                                className="text-xs uppercase tracking-[0.3em] text-[#C9A664]"
-                            >
-                                Voir liste complète
-                            </Link>
-                        </div>
-                        <div className="mt-6 grid gap-4 md:grid-cols-3">
-                            {teamSnapshot.map((seller) => (
-                                <div
-                                    key={seller.name}
-                                    className="rounded-2xl border border-white/10 bg-white/5 p-5"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <p className="text-sm font-semibold">{seller.name}</p>
-                                        <span
-                                            className={`rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] ${seller.status === 'Active'
-                                                ? 'bg-emerald-400/15 text-emerald-200'
-                                                : 'bg-slate-400/20 text-slate-200'
-                                                }`}
-                                        >
-                                            {seller.status}
-                                        </span>
-                                    </div>
-                                    <div className="mt-4 text-xs text-white/60">
-                                        <p>{seller.clients} clients</p>
-                                        <p>{seller.hot} clients HOT</p>
-                                    </div>
-                                    <div className="mt-4 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/50">
-                                        <span>Score</span>
-                                        <span className="text-white">{seller.score}</span>
-                                    </div>
-                                </div>
+                    <aside className="plan plan-feed" aria-label="Fil d'activité">
+                        <p className="feed-title">Fil d'activité</p>
+                        <div className="feed-list">
+                            {timeline.map((item) => (
+                                <article key={item.id} className="feed-line">
+                                    <p>{item.label}</p>
+                                    <span>{item.detail}</span>
+                                    <em>{item.date}</em>
+                                </article>
                             ))}
                         </div>
-                    </section>
+                    </aside>
                 </div>
-            </div>
 
-            <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@300;400;500;600;700&display=swap');
-        body {
-          font-family: 'Manrope', sans-serif;
-          background: #0c0b0a;
-        }
-        h1, h2 {
-          font-family: 'Marcellus', serif;
-          letter-spacing: 0.01em;
-        }
-      `}</style>
-        </main>
-    )
+                {(needsAuth || error) && (
+                    <section className="plan plan-note" aria-label="Informations système">
+                        {needsAuth && <p>Connexion requise: ouvre /admin/login pour activer le flux.</p>}
+                        {error && <p>{error}</p>}
+                    </section>
+                )}
+            </div>
+        </AdminLayout>
+    );
 }
